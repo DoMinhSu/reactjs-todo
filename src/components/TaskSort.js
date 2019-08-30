@@ -5,7 +5,7 @@ class TaskSort extends React.Component {
         return (
 
             <tr>
-                <td />
+
                 <td>
                     <input type="text" className="form-control" />
                 </td>
@@ -16,7 +16,7 @@ class TaskSort extends React.Component {
                         <option value={1}>Kích Hoạt</option>
                     </select>
                 </td>
-                <td />
+                <td></td>
             </tr>
 
         );
