@@ -2,18 +2,10 @@ import React from 'react';
 import TaskSort from './TaskSort';
 import TaskItem from './TaskItem';
 import {connect} from 'react-redux';
+import * as type from './../constants/index';
 class TaskList extends React.Component {
-    // constructor(props){
-    //     super(props);
-    // }
     componentDidMount(){
-        fetch('https://jsonplaceholder.typicode.com/users/1/todos')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(myJson) {
-                console.log(JSON.stringify(myJson));
-            });
+        this.props.fetchTaskList();
     }
     render() {
         const {tasks} = this.props;
@@ -42,10 +34,12 @@ const mapStateToProps = (state)=>{
         tasks : state.tasks
     }
 }
-const mapDispatchToProps = (dispatch,prop)=>{
+const mapDispatchToProps = (dispatch,props)=>{
     return{
-        
+        fetchTaskList :() => {
+            dispatch(type.FETCH_GET_LIST);   
+        }
     }
 }
 
-export default connect(mapStateToProps,null)(TaskList);
+export default connect(mapStateToProps,mapDispatchToProps)(TaskList);
