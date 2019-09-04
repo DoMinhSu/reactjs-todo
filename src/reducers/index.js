@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux';
-import tasks from './tasks';
-const producers = combineReducers({
-    tasks,
+import categories from './category'; 
+import languages from './languages'; 
 
+const producers = combineReducers({
+    categories,
+    languages,
 });
 export default producers;

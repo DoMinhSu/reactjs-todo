@@ -8,10 +8,14 @@ import reducer from './reducers/index';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
+import { BrowserRouter as Router} from "react-router-dom";
+
 var store = createStore(reducer,applyMiddleware(thunk));
 ReactDOM.render(
                 <Provider store={store}>
-                    <App />
+                    <Router>
+                        <App />
+                    </Router>
                 </Provider>
                     , document.getElementById('root'));
                 
